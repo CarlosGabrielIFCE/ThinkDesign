@@ -127,7 +127,7 @@ DEFAULT_FROM_EMAIL = ' Name <carloscms2009@gmail.com>'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'carloscms2009@gmail.com'
-EMAIL_HOST_PASSWORD = 'Y!p7i5{M9/'
+EMAIL_HOST_PASSWORD = 'y!p7i5{M9/'
 EMAIL_PORT = 587
 
 CONTACT_EMAIL = 'carloscms2009@gmail.com'
