@@ -123,14 +123,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-DEFAULT_FROM_EMAIL = ' Name <carloscms2009@gmail.com>'
+DEFAULT_FROM_EMAIL = ' Name <ThinkIdeasDevelopers@outlook.com>'
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'carloscms2009@gmail.com'
-EMAIL_HOST_PASSWORD = 'y!p7i5{M9/'
-EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.live.com'
+EMAIL_HOST_USER = 'ThinkIdeasDevelopers@outlook.com'
+EMAIL_HOST_PASSWORD = 'Y!p7i5{M9/'
+EMAIL_PORT = 25
 
-CONTACT_EMAIL = 'carloscms2009@gmail.com'
+CONTACT_EMAIL = 'ThinkIdeasDevelopers@outlook.com'
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
