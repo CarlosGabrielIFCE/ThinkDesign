@@ -10,6 +10,13 @@ class Contact(forms.Form):
     telefone = forms.CharField(label="Telefone")
     message = forms.CharField(label="Contato", widget=forms.Textarea)
 
+    def __init__(self, *args, **kwargs):
+        super(Contact, self).__init__(*args, **kwargs)
+        self.fields['name'].widget.attrs['class'] = 'form-control'
+        self.fields['email'].widget.attrs['class'] = 'form-control'
+        self.fields['telefone'].widget.attrs['class'] = 'form-control'
+        self.fields['message'].widget.attrs['class'] = 'form-control'
+
     def send_mail(self):
         subject = 'Contato'
         context = {

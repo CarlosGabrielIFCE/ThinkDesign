@@ -1,469 +1,660 @@
-{%load staticfiles%}
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Think Developers - Startup</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-  <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+        <link rel="stylesheet" href="{% static 'assets/css/fonticons.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/fonts/stylesheet.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/jquery.fancybox.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+        <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
 
-    <title>Think Ideas</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="{%static "vendor/bootstrap/css/bootstrap.min.css"%}" rel="stylesheet">
+        <!--For Plugins external css-->
+        <link rel="stylesheet" href="{% static 'assets/css/plugins.css' %}" />
 
-    <!-- Custom fonts for this template -->
-    <link href="{% static "vendor/font-awesome/css/font-awesome.min.css"%}" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+        <!--Theme custom css -->
+        <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
 
-    <!-- Custom styles for this template -->
-    <link href="{% static "css/agency.min.css" %}" rel="stylesheet">
+        <!--Theme Responsive css-->
+        <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}" />
 
-  </head>
+        <script src="{% static 'assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js' %}"></script>
+    </head>
+    <body data-spy="scroll" data-target=".navbar-collapse">
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class='preloader'><div class='loaded'>&nbsp;</div></div>
+        <div class="culmn">
+            <header id="main_menu" class="header navbar-fixed-top">            
+                <div class="main_menu_bg">
+                    <div class="container">
+                        <div class="row">
+                            <div class="nave_menu">
+                                <nav class="navbar navbar-default">
+                                    <div class="container-fluid">
+                                        <!-- Brand and toggle get grouped for better mobile display -->
+                                        <div class="navbar-header">
+                                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                                <span class="sr-only">Toggle navigation</span>
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+                                            </button>
+                                            <a class="navbar-brand" href="#home">
+                                                <img src="{% static 'assets/images/logo.png' %}"/>
+                                            </a>
+                                        </div>
 
-  <body id="page-top">
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">ThinkIdeas</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fa fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav text-uppercase ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">Serviços</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">Sobre</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#team">Time</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#tecno">Tecnologias</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Contato</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Header -->
-    <header class="masthead">
-      <div class="container">
-        <div class="intro-text">
-          {% if is_valid %}
-            <h3 class="section-heading text-uppercase"> Você enviou o formulário com sucesso!</h3>
-          {% endif %}
-          <div class="intro-heading text-uppercase">Bem vindo!</div>
-          <div><h3><br><br><br>Somos uma iniciativa de alunos do Instituto Federal do Ceará<br>
-          interessados em empreender, desenvolver aplicativos e projetos de automação, assim como aplicações<br>
-          Web.</h3></div>
-          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Leia mais</a>
-        </div>
-      </div>
-    </header>
-
-    <!-- Services -->
-    <section id="services" class="bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Serviços</h2>
-            <!--<h3 class="section-subheading text-muted"></h3> -->
-          </div>
-        </div>
-        <div class="row text-center">
-          <div class="col-md-3 col-lg-4">
-            <span class="fa-stack fa-4x">
-              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="service-heading">Aplicações Web</h4>
-            <p class="text-muted">Desenvolvemos aplicações Web, como sites de E-commerce, blogs e variados.</p>
-          </div>
-          <div class="col-md-3 col-lg-4">
-            <span class="fa-stack fa-4x">
-              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-microchip fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="service-heading">Projetos Físicos</h4>
-            <p class="text-muted">Realizamos projetos de automação, para sanar problemas físicos.</p>
-          </div>
-          <div class="col-md-3">
-            <span class="fa-stack fa-4x">
-              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-mobile fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="service-heading">Aplicações Mobile</h4>
-            <p class="text-muted">Desenvolvemos aplicativos para Android e iOS, utilizando Ionic e Swift, para flexibilizar o uso.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+                                        <!-- Collect the nav links, forms, and other content for toggling -->
 
 
 
-    <!-- About -->
-    <section id="about">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Sobre</h2>
-            <h3 class="section-subheading text-muted">História de como a equipe surgiu</h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-12">
-            <ul class="timeline">
-              <li>
-                <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src="{% static "img/about/IFCE.jpeg" %}" alt="">
+                                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                                            <ul class="nav navbar-nav navbar-right">
+                                                <li><a href="#home">INICIO</a></li>
+                                                <li><a href="#about">SOBRE</a></li>
+                                                <li><a href="#service">EXPERIÊNCIA</a></li>
+                                                <li><a href="#team">TIME</a></li>
+                                                <li><a href="#portfolio">TRABALHOS</a></li>
+                                                <!-- <li><a href="#testimonial">PEOPLE SAY</a></li> -->
+                                                <li><a href="#contact">CONTATO</a></li>
+                                            </ul>
+
+
+                                        </div>
+
+                                    </div>
+                                </nav>
+                            </div>  
+                        </div>
+
+                    </div>
+
                 </div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h4>Março de 2016</h4>
-                    <h4 class="subheading">Nossa Jornada Começa</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted">Começamos nossa jornada como estudantes do Instituto Federal do Ceará no ano de 2016, onde
-                    os integrantes do time são aprovados em Engenharia da Computação.</p>
-                  </div>
+            </header> <!--End of header -->
+
+
+
+
+
+            <section id="home" class="home">
+                <div class="overlay">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12 ">
+                                <div class="main_home_slider text-center">
+                                    <div class="single_home_slider">
+                                        <div class="main_home wow fadeInUp" data-wow-duration="700ms">
+                                            <h2>Think Design and Developers</h2>
+                                            <div class="separator"></div>
+                                            <p>Somos uma iniciativa de estudantes do Instituto Federal
+                                             do Ceárá focados em aprender e desenvolver projetos de design,
+                                             projetos web/mobile e automação.</p>
+                                            <div class="home_btn">
+                                                <a href="#about" class="btn btn-primary">SAIBA MAIS</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="single_home_slider">
+                                        <div class="main_home wow fadeInUp" data-wow-duration="700ms">
+                                            <h2>Think Design and Developers</h2>
+                                            <div class="separator"></div>
+                                            <p>Somos uma iniciativa de estudantes do Instituto Federal
+                                             do Ceárá focados em aprender e desenvolver projetos de design,
+                                             projetos web/mobile e automação.</p>
+                                            <div class="home_btn">
+                                                <a href="#service" class="btn btn-primary">NOSSOS SERVIÇOS</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="single_home_slider">
+                                        <div class="main_home wow fadeInUp" data-wow-duration="700ms">
+                                            <h2>Think Design and Developers</h2>
+                                            <div class="separator"></div>
+                                            <p>Somos uma iniciativa de estudantes do Instituto Federal
+                                             do Ceárá focados em aprender e desenvolver projetos de design,
+                                             projetos web/mobile e automação.</p>
+                                            <div class="home_btn">
+                                                <a href="#team" class="btn btn-primary">NOSSO TIME</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </li>
-              <li class="timeline-inverted">
-                <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src="{% static "img/about/Logo-Think-Ideas.gif" %}" alt="">
+            </section>
+
+
+
+
+
+            <section id="about" class="about">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="main_about_area sections">
+                            <div class="col-sm-10 col-sm-offset-1">
+
+                                <div class="main_about_content">
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <div class="single_about_left_img text-center wow fadeInLeft" data-wow-duration=".6s">
+                                                <img src="{% static 'assets/images/ableft.png' %}" alt="" />
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-7 wow fadeInRight" data-wow-duration="700ms">
+                                            <div class="single_about_right_content">
+                                                <h3>SOBRE NÓS</h3>
+                                                <p>A Think nasceu de uma iniciativa de 4 alunos que sempre
+                                                realizavam seus trabalhos em grupo, todos com vontade de empreender,
+                                                 de aprender linguagens de mercado e desenvolver aplicações para 
+                                                 clientes.</p>
+
+                                                <p>Com isso, estudamos das mais diversas linguagens de programação
+                                                 e softwares de design, utilizando metodologias ágeis de
+                                                 desenvolvimento, com o intuito de entregar aos nossos clientes
+                                                  o produto da melhor forma possível.</p>
+
+                                                <div class="home_btn">
+                                                    <a href="#portfolio" class="btn btn-primary">CONHEÇA NOSSOS SERVIÇOS</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h4>Novembro 2016</h4>
-                    <h4 class="subheading">Nascimento da equipe</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted">No semestre 2016.2, a equipe, observando que sempre realizava trabalhos com o mesmo grupo,
-                    resolve se juntar e montar um time de desenvolvimento, denominado ThinkIDeas.</p>
-                  </div>
+            </section>
+
+
+<!--             <section id="video" class="video text-center wow fadeIn"  data-wow-duration="2s" data-wow-dealy="1.5s">
+                <div class="video_overlay">
+                    <div class="container">
+                        <div class="row">
+                            <div class="main_video">
+                                <div class="col-sm-12">
+                                    <div class="icon">
+                                        <a href="https://www.youtube.com/embed/_l6CQRHIGyg" class="youtube-media"><img src="assets/images/play.png" alt="play-icon" /></a>
+                                        <h3>WATCH OUR STORY</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </li>
-              <li>
-                <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src="{% static "img/about/TeoriaComputacional.jpeg" %}" alt="">
+            </section>
+ -->
+
+
+            <section id="service" class="service">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-10 col-sm-offset-1">
+                            <div class="main_service_area sections text-center">
+                                <div class="row">
+                                    <div class="head_title text-center">
+                                        <h3>Serviços</h3>
+                                        <p>Serviços desenvolvidos pela equipe</p>
+                                        <div class="separator2"></div>
+                                    </div>
+
+                                    <div class="main_service_content">
+                                        <div class="col-sm-4">
+                                            <div class="single_service">
+                                                <div class="single_service_icon">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </div>
+                                                <div class="single_service_content">
+                                                    <h4>Marketing Visual</h4>
+                                                    <p>Desenvolvemos conteúdo visual para posts no 
+                                                    Instagram, Facebook.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="single_service">
+                                                <div class="single_service_icon">
+                                                    <i class="fa fa-object-group"></i>
+                                                </div>
+                                                <div class="single_service_content">
+                                                    <h4>Marketing Digital</h4>
+                                                    <p>Dispomos de serviços de posts diários nas páginas 
+                                                    do cliente para produtividade de sua empresa crescer.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="single_service">
+                                                <div class="single_service_icon">
+                                                    <i class="fa fa-laptop"></i>
+                                                </div>
+                                                <div class="single_service_content">
+                                                    <h4>Aplicações Web</h4>
+                                                    <p>Desenvolvemos sites web como Portfólios, sites de
+                                                    ecommerce entre outros.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="border_devider"></div>
+
+                                        <div class="col-sm-4">
+                                            <div class="single_service">
+                                                <div class="single_service_icon">
+                                                    <i class="fa fa-cog"></i>
+                                                </div>
+                                                <div class="single_service_content">
+                                                    <h4>Projetos de automação</h4>
+                                                    <p>Realizamos projetos de automação, para sanar 
+                                                    problemas físicos</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="single_service">
+                                                <div class="single_service_icon">
+                                                    <i class="fa fa-mobile"></i>
+                                                </div>
+                                                <div class="single_service_content">
+                                                    <h4>Aplicações Mobile</h4>
+                                                    <p>Desenvolvemos aplicativos para Android e iOS, utilizando 
+                                                    Ionic, Android Studio e Swift, para flexibilizar o uso.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+<!--                                         <div class="col-sm-4">
+                                            <div class="single_service">
+                                                <div class="single_service_icon">
+                                                    <i class="fa fa-heart-o"></i>
+                                                </div>
+                                                <div class="single_service_content">
+                                                    <h4>Photography</h4>
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h4>Novembro 2017</h4>
-                    <h4 class="subheading">Seminário Integrado</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted">Em Novembro de 2017, a equipe realizou o primeiro seminário apresentando a equipe de desenvolvimento ao restante da sala, o que foi uma experiência incrível.</p>
-                  </div>
+            </section>
+
+            <section id="team" class="team">
+                <div class="video_overlay">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-10 col-sm-offset-1">
+                                <div class="main_team sections text-center">
+                                    <div class="row">
+                                        <div class="head_title text-center">
+                                            <h3>NOSSO TIME</h3>
+                                            <p>Integrantes do time Think Developers</p>
+                                            <div class="separator2"></div>
+                                        </div>
+                                        <div class="col-sm-3 col-xs-12">
+                                            <div class="single_team_content">
+                                                <div class="single_team_img">
+                                                    <img src="{% static 'assets/images/team1.jpg' %}" alt="" />
+                                                </div>
+                                                <div class="single_team_text">
+                                                    <h4>CARLOS GABRIEL</h4>
+                                                    <p>Bolsista de Programação do Instituto Federal do Ceará, Designer e Desenvolvedor Web Freelancer</p>
+                                                </div>
+                                            </div>
+                                            <div class="footer_subcribs_area">
+                                                <div class="flowus">
+                                                    <a href="https://www.facebook.com/carlos.ramosdasilva.37"><i class="fa fa-facebook"></i></a>
+                                                    <a href="https://Instagram.com/caaarlosgabe_"><i class="fa fa-instagram"></i></a>
+                                                    <a href=""><i class="fa fa-linkedin"></i></a>
+                                                </div>
+                                            </div>                                        
+                                        </div>
+
+                                        <div class="col-sm-3 col-xs-12">
+                                            <div class="single_team_content">
+                                                <div class="single_team_img">
+                                                    <img src="{% static 'assets/images/team2.jpg' %}" alt="" />
+                                                </div>
+                                                <div class="single_team_text">
+                                                    <h4>CELSO ERNANI</h4>
+                                                    <p>Bolsista do Laboratório de Desenvolvimento de Sistemas(LDS)
+                                                    e Android Developer
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="footer_subcribs_area">
+                                                <div class="flowus">
+                                                    <a href="https://www.facebook.com/celso.pre.9"><i class="fa fa-facebook"></i></a>
+                                                    <a href="https://www.instagram.com/celsoernani/"><i class="fa fa-instagram"></i></a>
+                                                    <a href=""><i class="fa fa-linkedin"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-3 col-xs-12">
+                                            <div class="single_team_content">
+                                                <div class="single_team_img">
+                                                    <img src="{% static 'assets/images/team3.jpg' %}" alt="" />
+                                                </div>
+                                                <div class="single_team_text">
+                                                    <h4>JOSÉ MATEUS SALES</h4>
+                                                    <p>Bolsista da Apple Developer Academy e CEO do bloco ENDQP</p>
+                                                </div>
+                                            </div>
+                                            <div class="footer_subcribs_area">
+                                                <div class="flowus">
+                                                    <a href="https://www.facebook.com/matheus.salles.9028"><i class="fa fa-facebook"></i></a>
+                                                    <a href="https://www.instagram.com/teus.sales/"><i class="fa fa-instagram"></i></a>
+                                                    <a href=""><i class="fa fa-linkedin"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-3 col-xs-12">
+                                            <div class="single_team_content">
+                                                <div class="single_team_img">
+                                                    <img src="{% static 'assets/images/team4.jpeg' %}" alt="" />
+                                                </div>
+                                                <div class="single_team_text">
+                                                    <h4>GUILHERME LIMA</h4>
+                                                    <p>Designer da Empresa Smart Midia Digital e  Integrante do Centro Acadêmico de Eng. da Computação do IFCE</p>
+                                                </div>
+                                            </div>
+                                            <div class="footer_subcribs_area">
+                                                <div class="flowus">
+                                                    <a href="https://www.facebook.com/guilhermenogueiralima"><i class="fa fa-facebook"></i></a>
+                                                    <a href="https://www.instagram.com/gui_nlima/"><i class="fa fa-instagram"></i></a>
+                                                    <a href=""><i class="fa fa-linkedin"></i></a>
+                                                </div>
+                                            </div>
+                                        </div> <!-- End of col-sm-4 -->
+                                    </div>
+                                    <div class="team_hiring_area">
+<!--                                         <p>Become part of our dream team, let’s join us ! </p> -->
+                                        <a href="#contact" class="btn btn-primary">CONTRATE-NOS</a>
+                                    </div>
+                                </div><!-- End of main team contant -->
+                            </div>
+                        </div><!-- End of row -->
+                    </div>
                 </div>
-              </li>
-              <li class="timeline-inverted">
-                <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src="{% static "img/about/MicroControladores.jpg"%}" alt="">
+            </section>
+
+
+
+
+
+
+            <section id="portfolio" class="portfolio">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="main_portfolio sections">
+                            <div class="head_title text-center">
+                                <h4>PORTFOLIO</h4>
+                                <a href="">Veja todos os projetos <i class="fa fa-chevron-right"></i></a>
+                            </div> 
+
+                            <div class="main_portfolio_content text-center">
+                                <div class="grid">
+                                    <div class="grid-item">
+                                        <img src="{% static 'assets/images/pf1.gif' %}" alt="" />
+                                        <div class="grid_item_overlay all_overlay">
+                                            <a href="{% static 'assets/images/pf1.gif' %}" class="portfolio-img"> <i class="fa fa-picture-o"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="grid-item">
+                                        <img src="{% static 'assets/images/pf2.jpg' %}" alt="" />
+                                        <div class="grid_item_overlay">
+                                            <a href="{% static 'assets/images/pf2.jpg' %}" class="portfolio-img"> <i class="fa fa-picture-o"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="grid-item">
+                                        <img src="{% static 'assets/images/pf3.jpg' %}" alt="" />
+                                        <div class="grid_item_overlay">
+                                            <a href="{% static 'assets/images/pf3.jpg' %}" class="portfolio-img"> <i class="fa fa-picture-o"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="grid-item">
+                                        <img src="{% static 'assets/images/pf4.png' %}" alt="" />
+                                        <div class="grid_item_overlay ">
+                                            <a href="{% static 'assets/images/pf4.png' %}" class="portfolio-img"> <i class="fa fa-picture-o"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="grid-item">
+                                        <img src="{% static 'assets/images/pf5.png' %}" alt="" />
+                                        <div class="grid_item_overlay ">
+                                            <a href="{% static 'assets/images/pf5.png' %}" class="portfolio-img"> <i class="fa fa-picture-o"></i></a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h4>Dezembro 2017</h4>
-                    <h4 class="subheading">Projeto de Microcontroladores</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted">Em Dezembro de 2017 a equipe apresentou o primeiro protótipo de projeto de automação na cadeira de Microcontroladores e Microprocessadores, denominado Sensor Infra-x, utilizando tecnologia diferente da convencional</p>
-                  </div>
+            </section>
+
+
+            
+
+
+            <section id="contact" class="contact sections">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-10 col-sm-offset-1">
+                            <div class="row">
+                                <div class="contact_contant">
+
+                                    <div class="col-sm-6">
+                                        <h4>CONTATE-NOS</h4>
+                                        {% if is_valid %}
+                                            <script> alert("Mensagem enviada com sucesso!");</script>
+                                        {% endif %}
+                                        <div class="single_contant_left">
+                                            <form action="#" id="formid" method="post" >
+                                                {% csrf_token %}
+                                                <fieldset>
+                                                {% for field in form %}
+                                                    <div class="form-group">
+                                                        {{ field.label_tag }}
+                                                        {{ field }}
+                                                        {% if field.errors %}
+                                                            <ul class="errorlist">
+                                                                {% for error in field.errors %}
+                                                                    <li>{{ error }}</li>
+                                                                {% endfor%}
+                                                            </ul>
+                                                        {% endif %}
+                                                    </div>
+                                                {% endfor %}
+                                                </fieldset>
+                                                <!--<div class="col-lg-8 col-md-8 col-sm-10 col-lg-offset-2 col-md-offset-2 col-sm-offset-1">-->
+<!-- 
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="name" placeholder="first name" required="">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <input type="email" class="form-control" name="email" placeholder="Email" required="">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <textarea class="form-control" name="message" rows="8" placeholder="Message"></textarea>
+                                                </div>
+
+ -->                                                <div class="">
+                                                    <input type="submit" value="Submit" class="btn btn-primary">
+                                                </div>
+                                                <!--</div>--> 
+                                            </form>
+                                        </div>
+                                    </div>
+
+<!--                                     <div class="col-sm-6">
+
+                                        <div class="main_clinetslogo">
+                                            <h4>OUR HAPPY CLIENT</h4>
+                                            <div class="row">
+                                                <div class="col-sm-6 col-xs-6"> 
+                                                    <a href=""><img src="{% static 'assets/images/clogo1.png' %}" alt="" /></a>
+                                                </div>
+                                                <div class="col-sm-6 col-xs-6"> 
+                                                    <a href=""><img src="{% static 'assets/images/clogo2.png' %}" alt="" /></a>
+                                                </div>
+                                                <div class="col-sm-6 col-xs-6"> 
+                                                    <a href=""><img src="{% static 'assets/images/clogo3.png' %}" alt="" /></a>
+                                                </div>
+                                                <div class="col-sm-6 col-xs-6">
+                                                    <a href=""><img src="{% static 'assets/images/clogo4.png' %}" alt="" /></a>
+                                                </div>
+                                                <div class="col-sm-6 col-xs-6"> 
+                                                    <a href=""><img src="{% static 'assets/images/clogo5.png' %}" alt="" /></a>
+                                                </div>
+                                                <div class="col-sm-6 col-xs-6">
+                                                    <a href=""><img src="{% static 'assets/images/clogo6.png' %}" alt="" /></a>
+                                                </div>
+                                                <div class="col-sm-6 col-xs-6"> 
+                                                    <a href=""><img src="{% static 'assets/images/clogo7.png' %}" alt="" /></a>
+                                                </div>
+                                                <div class="col-sm-6 col-xs-6"> 
+                                                    <a href=""><img src="{% static 'assets/images/clogo8.png' %}" alt="" /></a>
+                                                </div>
+                                                <div class="col-sm-6 col-xs-6">
+                                                    <a href=""><img src="{% static 'assets/images/clogo9.png' %}" alt="" /></a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div> -->
+
+
+                                </div> <!-- End of messsage contant-->
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </li>
-              <li class="timeline-inverted">
-                <div class="timeline-image">
-                  <h4>Faça parte
-                    <br>Da Nossa
-                    <br>História!</h4>
+            </section>
+
+
+
+            <section id="footer" class="footer_widget">
+                <div class="video_overlay">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-10 col-sm-offset-1">
+                                <div class="row">
+                                    <div class="main_widget">
+                                        <div class="col-sm-4 col-xs-12">
+                                            <div class="single_widget wow fadeIn" data-wow-duration="800ms">
+                                                <div class="footer_logo">
+                                                    <img src="{% static 'assets/images/logo.png' %}" alt="" />
+                                                </div>
+                                                <p>Somos uma iniciativa de estudantes do Instituto Federal
+                                             do Ceárá focados em aprender e desenvolver projetos de design,
+                                             projetos web/mobile e automação.</p>
+
+
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-4  col-xs-12">
+                                            <div class="single_widget wow fadeIn" data-wow-duration="800ms">
+                                                <h4>CONTATO</h4>
+                                                <ul>
+                                                    <li><a href="">
+                                                            <i class="fa fa-envelope"></i> 
+                                                            <span>ThinkIdeasDevelopers@outlook.com</span>
+                                                        </a></li>
+                                                    <li><a href=""><i class="fa fa-phone"></i>(85)99863-4578</a></li>
+                                                </ul> 
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-4 col-xs-12">
+                                            <div class="single_widget wow fadeIn" data-wow-duration="800ms">
+                                                <h4>STAY IN TOUCH</h4>
+                                                <div class="footer_subcribs_area">
+                                                    <div class="flowus">
+                                                        <a href=""><i class="fa fa-facebook"></i></a>
+                                                        <a href=""><i class="fa fa-instagram"></i></a>
+
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="main_footer text-center">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-xs-12">
+                                            <div class="copyright_text">
+                                                <p class=" wow fadeInRight" data-wow-duration="1s">Made with <i class="fa fa-heart"></i> by <a href="http://bootstrapthemes.co">Bootstrap Themes</a>2016. All Rights Reserved</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </li>
-            </ul>
-          </div>
+            </section>
+
+
+
+
+
+
+
         </div>
-      </div>
-    </section>
 
-    <!-- Team -->
-    <section id="team" class="bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Nosso time</h2>
-            <h3 class="section-subheading text-muted">Integrantes da equipe ThinkIdeas Developers.</h3>
-          </div>
+        <!-- START SCROLL TO TOP  -->
+
+        <div class="scrollup">
+            <a href="#"><i class="fa fa-chevron-up"></i></a>
         </div>
-        <div class="row">
-          <div class="col-sm-2 col-sm-3">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="{% static "img/team/1.jpg"%}" alt="">
-              <h4>Carlos Gabriel</h4>
-              <p class="text-muted">Bolsista de Programação e Designer FreeLancer</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="https://Instagram.com/caaarlosgabe_">
-                    <i class="fa fa-instagram" ></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="https://www.facebook.com/carlos.ramosdasilva.37">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-2">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="{% static "img/team/4.jpg"%}" alt="">
-              <h4>Celso Ernani</h4>
-              <p class="text-muted">Bolsista do Laboratório de Desenvolvimento de Sistemas(LDS)</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="https://www.instagram.com/celsoernani/">
-                    <i class="fa fa-instagram"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="https://www.facebook.com/celso.pre.9">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-2 col-sm-3">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="{%static "img/team/2.jpg"%}" alt="">
-              <h4>Guilherme Lima</h4>
-              <p class="text-muted">Gerente de projetos da Empresa TZAL</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="https://www.instagram.com/gui_nlima/">
-                    <i class="fa fa-instagram"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="https://www.facebook.com/guilhermenogueiralima">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-2">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="{% static "img/team/3.jpg"%}" alt="">
-              <h4>Mateus Sales</h4>
-              <p class="text-muted">Bolsista da Apple Developer Academy</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="https://www.instagram.com/teus.sales/">
-                    <i class="fa fa-instagram"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="https://www.facebook.com/matheus.salles.9028">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
 
-        </div>
-        <div class="row">
-          <div class="col-lg-8 mx-auto text-center">
-            <p class="large text-muted">A equipe traz um design inovador no que diz respeito à divisão de trabalhos, em que utilizamos metodologias ágeis de desenvolvimento, como a Metodologia Scrum.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+        <script src="{% static 'assets/js/vendor/jquery-1.11.2.min.js' %}"></script>
+        <script src="{% static 'assets/js/vendor/bootstrap.min.js' %}"></script>
 
-    <!-- Clients -->
-    <section  id ="tecno">
-      <div class="container">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Tecnologias</h2>
-            <h3 class="section-subheading text-muted">Algumas linguagens que utilizamos no desenvolvimento de nosssos projetos.</h3>
-          </div>
-        <div class="row">
-          <div class="col-sm-3 col-lg-4">
-            <a >
-              <img class="img-fluid d-block mx-auto" src="{% static "img/logos/arduino.jpeg"%}" alt="">
-            </a>
-          </div>
-          <div class="col-sm-3 col-lg-4">
-            <a >
-              <img class="img-fluid d-block mx-auto" src="{% static "img/logos/android.jpeg"%}" alt="">
-            </a>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <a >
-              <img class="img-fluid d-block mx-auto" src="{% static "img/logos/css.png"%}" alt="">
-            </a>
-          </div>
-          <div class="col-sm-3 col-lg-4">
-            <a >
-              <img class="img-fluid d-block mx-auto" src="{% static "img/logos/html.png" %}" alt="">
-            </a>
-          </div>
-          <div class="col-sm-3 col-lg-4">
-            <a >
-              <img class="img-fluid d-block mx-auto" src="{% static "img/logos/ionic.png"%}" alt="">
-            </a>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <a>
-              <img class="img-fluid d-block mx-auto" src="{% static "img/logos/MPLABX.png"%}" alt="">
-            </a>
-          </div>
-          <div class="col-sm-3 col-lg-4">
-            <a>
-              <img class="img-fluid d-block mx-auto" src="{% static "img/logos/swift.jpeg"%}" alt="">
-            </a>
-          </div>
-          <div class="col-sm-3 col-lg-4">
-            <a >
-              <img class="img-fluid d-block mx-auto" src="{% static "img/logos/C.png"%}" alt="">
-            </a>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <a >
-              <img class="img-fluid d-block mx-auto" src="{% static "img/logos/Java.png"%}" alt="">
-            </a>
-          </div>
+        <script src="{% static 'assets/js/jquery.magnific-popup.js' %}"></script>
+        <script src="{% static 'assets/js/jquery.mixitup.min.js' %}"></script>
+        <script src="{% static 'assets/js/jquery.easing.1.3.js' %}"></script>
+        <script src="{% static 'assets/js/jquery.masonry.min.js' %}"></script>
+        <script src="{% static 'assets/js/jquery.fancybox.pack.js' %}"></script>
 
-        </div>
-      </div>
-    </section>
+        <script src="{% static 'assets/js/plugins.js' %}"></script>
+        <script src="{% static 'assets/js/main.js' %}"></script>
 
-    <!-- Contact -->
-    <section id="contact">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Contate-nos</h2>
-            <h3 class="section-subheading text-muted">Entre em contato conosco e contrate nossos serviços.</h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-12">
-            <form class="pure-form pure-form-aligned" method="post">
-              {% csrf_token %}
-              <fieldset class="section-heading text-muted">
-                {% for field in form %}
-                  <div class="form-group">
-                    {{ field.label_tag }}
-                    {{ field }}
-                    {% if field.errors %}
-                    <ul class="errorlist">
-                      {% for error in field.errors %}
-                        <li>{{ error }}</li>
-                      {% endfor%}
-                    </ul>
-                    {% endif %}
-                  </div>
-                {% endfor %}
-                <div class="pure-controls">
-                  <button type="submit" class="btn btn-primary btn-x1 text-uppercase">Enviar</button>
-                </div>
-              </fieldset>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <span class="copyright">Copyright &copy; ThinkIdeas</span>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-instagram"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-inline quicklinks">
-              <li class="list-inline-item">
-                <a href="#">Privacy Policy</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">Terms of Use</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="{% static "vendor/jquery/jquery.min.js"%}"></script>
-    <script src="{% static "vendor/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="{% static "vendor/jquery-easing/jquery.easing.min.js" %}"></script>
-
-    <!-- Contact form JavaScript -->
-    <script src="{% static "js/jqBootstrapValidation.js" %}"></script>
-    <script src="{% static "js/contact_me.js" %}"></script>
-
-    <!-- Custom scripts for this template -->
-    <script src="{% static "js/agency.min.js" %}"></script>
-
-  </body>
-
+    </body>
 </html>
